@@ -12,6 +12,24 @@ namespace dodge_ball_game
 {
     public partial class GameScreen : UserControl
     {
+       // Ball chaseBall;
+        Player hero;
+
+        public static int lives, difficuly;
+        public static int score = 0;
+
+        List<Ball> dodgeBalls = new List<Ball>();
+
+       
+        Size screenSize;
+
+        public static int gsWidth = 600;
+        public static int gsHeight = 600;
+
+        bool upArrowDown = false;
+        bool downArrowDown = false;
+        bool leftArrowDown = false;
+        bool rightArrowDown = false;
         public GameScreen()
         {
             InitializeComponent();
@@ -19,7 +37,55 @@ namespace dodge_ball_game
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            if (leftArrowDown == true)
+            {
+                hero.Move("left", screenSize);
+            }
 
+            if (rightArrowDown == true)
+            {
+                hero.Move("right", screenSize);
+            }
+
+            if (upArrowDown == true)
+            {
+                hero.Move("up", screenSize);
+            }
+
+            if (downArrowDown == true)
+            {
+                hero.Move("down", screenSize);
+            }
+
+           // chaseBall.Move(screenSize);
+
+            //foreach (Ball b in dodgeBalls)
+            //{
+            //    b.Move(screenSize);
+            //}
+
+            //if (chaseBall.Collision(hero))
+            //{
+            //    score++;
+            //    NewBall();
+            //}
+
+            //foreach (Ball b in dodgeBalls)
+            //{
+            //    if (b.Collision(hero))
+            //    {
+            //        lives--;
+
+            //        if (lives == 0)
+            //        {
+            //            timer1.Enabled = false;
+            //            Form1.ChangeScreen(this, new ());
+            //        }
+            //    }
+            //}
+
+
+            Refresh();
         }
     }
 }

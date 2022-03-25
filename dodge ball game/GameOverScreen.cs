@@ -10,17 +10,11 @@ using System.Windows.Forms;
 
 namespace dodge_ball_game
 {
-    public partial class Main_menu : UserControl
+    public partial class GameOverScreen : UserControl
     {
-        public Main_menu()
+        public GameOverScreen()
         {
             InitializeComponent();
-        }
-
-        private void easyButton_Click(object sender, EventArgs e)
-        {
-            Form1.ChangeScreen(this, new GameScreen());
-           
         }
     }
 }

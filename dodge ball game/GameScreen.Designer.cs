@@ -43,7 +43,7 @@
             // 
             this.livesLabel.AutoSize = true;
             this.livesLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.livesLabel.Location = new System.Drawing.Point(459, 16);
+            this.livesLabel.Location = new System.Drawing.Point(794, 27);
             this.livesLabel.Name = "livesLabel";
             this.livesLabel.Size = new System.Drawing.Size(32, 13);
             this.livesLabel.TabIndex = 0;
@@ -67,7 +67,7 @@
             this.Controls.Add(this.scoreLabel);
             this.Controls.Add(this.livesLabel);
             this.Name = "GameScreen";
-            this.Size = new System.Drawing.Size(509, 417);
+            this.Size = new System.Drawing.Size(850, 450);
             this.ResumeLayout(false);
             this.PerformLayout();
 

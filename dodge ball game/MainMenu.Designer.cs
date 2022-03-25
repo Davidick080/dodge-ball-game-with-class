@@ -34,7 +34,7 @@
             // 
             // easyButton
             // 
-            this.easyButton.Location = new System.Drawing.Point(406, 204);
+            this.easyButton.Location = new System.Drawing.Point(406, 195);
             this.easyButton.Name = "easyButton";
             this.easyButton.Size = new System.Drawing.Size(75, 23);
             this.easyButton.TabIndex = 0;
