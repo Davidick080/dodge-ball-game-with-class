@@ -16,5 +16,15 @@ namespace dodge_ball_game
         {
             InitializeComponent();
         }
+
+        private void retry_Button_Click(object sender, EventArgs e)
+        {
+            Form1.ChangeScreen(this, new GameScreen());
+    }
+
+        private void exit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

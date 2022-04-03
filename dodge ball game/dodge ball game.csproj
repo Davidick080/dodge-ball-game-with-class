@@ -47,7 +47,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Ball.cs" />
-    <Compile Include="ballIntergersList.cs" />
     <Compile Include="GameOverScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>

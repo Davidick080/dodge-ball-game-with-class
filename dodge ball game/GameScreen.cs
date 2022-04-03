@@ -7,18 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+// work on list 
+// 1st provblem figure out how to declare objects with the mouse key's 
 namespace dodge_ball_game
 {
     public partial class GameScreen : UserControl
     {
-       // Ball chaseBall;
+        Ball ball;
+  
         Player hero;
 
         public static int lives, difficuly;
-        public static int score = 0;
+        public int score = 0;
 
-        List<Ball> dodgeBalls = new List<Ball>();
+        List<Ball> ballList = new List<Ball>();
 
        
         Size screenSize;
@@ -33,6 +35,63 @@ namespace dodge_ball_game
         public GameScreen()
         {
             InitializeComponent();
+            InitializeGame();
+        }
+        public void InitializeGame()
+        {
+            screenSize = new Size(this.Width, this.Height);
+           //ero = new Player(x, y);
+           //all= new Ball(x, y, 8, 8);
+        }
+            private void GameScreen_Paint(object sender, PaintEventArgs e)
+        {
+            scoreLabel.Text = $"{score}";
+            livesLabel.Text = $"{lives}";
+            //Graphics.FillEllipse(Brushes.Green,ball.x, ball.y, ball.size, ball.size);
+          //foreach (Ball b in ballList)
+         // {
+           //   e.Graphics.FillEllipse(Brushes.Red, b.x, b.y, b.size, b.size);
+         // }
+
+         // e.Graphics.FillRectangle(Brushes.DodgerBlue, hero.x, hero.y, hero.width, hero.height);
+        }
+
+        private void GameScreen_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Left:
+                    leftArrowDown = true;
+                    break;
+                case Keys.Right:
+                    rightArrowDown = true;
+                    break;
+                case Keys.Up:
+                    upArrowDown = true;
+                    break;
+                case Keys.Down:
+                    downArrowDown = true;
+                    break;
+            }
+        }
+
+        private void GameScreen_KeyUp(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Left:
+                    leftArrowDown = false;
+                    break;
+                case Keys.Right:
+                    rightArrowDown = false;
+                    break;
+                case Keys.Up:
+                    upArrowDown = false;
+                    break;
+                case Keys.Down:
+                    downArrowDown = false;
+                    break;
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -57,32 +116,7 @@ namespace dodge_ball_game
                 hero.Move("down", screenSize);
             }
 
-           // chaseBall.Move(screenSize);
-
-            //foreach (Ball b in dodgeBalls)
-            //{
-            //    b.Move(screenSize);
-            //}
-
-            //if (chaseBall.Collision(hero))
-            //{
-            //    score++;
-            //    NewBall();
-            //}
-
-            //foreach (Ball b in dodgeBalls)
-            //{
-            //    if (b.Collision(hero))
-            //    {
-            //        lives--;
-
-            //        if (lives == 0)
-            //        {
-            //            timer1.Enabled = false;
-            //            Form1.ChangeScreen(this, new ());
-            //        }
-            //    }
-            //}
+         
 
 
             Refresh();
