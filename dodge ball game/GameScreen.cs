@@ -33,10 +33,32 @@ namespace dodge_ball_game
         public GameScreen()
         {
             InitializeComponent();
+            GameStart();
+        }
+
+        public void GameStart()
+        {
+            hero = new Player(100, 100);
+        }
+
+        private void GameScreen_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+
+        }
+
+        private void GameScreen_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void GameScreen_Paint(object sender, PaintEventArgs e)
+        {
+            e.Graphics.FillRectangle(Brushes.Red, hero.x, hero.y, hero.width, hero.height);
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+
             if (leftArrowDown == true)
             {
                 hero.Move("left", screenSize);
@@ -57,7 +79,8 @@ namespace dodge_ball_game
                 hero.Move("down", screenSize);
             }
 
-           // chaseBall.Move(screenSize);
+
+            // chaseBall.Move(screenSize);
 
             //foreach (Ball b in dodgeBalls)
             //{
@@ -83,7 +106,7 @@ namespace dodge_ball_game
             //        }
             //    }
             //}
-
+            Rectangle ballRec = new Rectangle();
 
             Refresh();
         }

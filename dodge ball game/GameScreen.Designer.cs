@@ -37,6 +37,7 @@
             // timer1
             // 
             this.timer1.Enabled = true;
+            this.timer1.Interval = 20;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // livesLabel
@@ -68,6 +69,9 @@
             this.Controls.Add(this.livesLabel);
             this.Name = "GameScreen";
             this.Size = new System.Drawing.Size(850, 450);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.GameScreen_Paint);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.GameScreen_KeyUp);
+            this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.GameScreen_PreviewKeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

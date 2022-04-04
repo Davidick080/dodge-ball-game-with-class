@@ -7,12 +7,12 @@ using System.Drawing;
 
 namespace dodge_ball_game
 {
-    internal class Ball
+    public class Ball
     {
         public int size = 10;
         public int xSpeed, ySpeed;
         public int x, y;
-        //  List<ballIntergersList> playerInformation = new List<ballIntergersList>();
+         List<ballIntergersList> playerInformation = new List<ballIntergersList>();
         // colour, rectangle
         public Ball(int _x, int _y, int _xSpeed, int _ySpeed)
         {
