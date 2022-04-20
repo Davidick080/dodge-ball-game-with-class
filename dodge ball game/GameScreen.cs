@@ -14,15 +14,16 @@ namespace dodge_ball_game
     public partial class GameScreen : UserControl
     {
         Ball ball;
-  
-        Player hero;
 
-        public static int lives, difficuly;
-        public int score = 0;
+       public Player hero;
+   
+       
+        public static int lives = 3;
 
         List<Ball> ballList = new List<Ball>();
+        Random randGen = new Random();
 
-       
+
         Size screenSize;
 
         public static int gsWidth = 600;
@@ -40,20 +41,35 @@ namespace dodge_ball_game
         public void InitializeGame()
         {
             screenSize = new Size(this.Width, this.Height);
-           //ero = new Player(x, y);
-           //all= new Ball(x, y, 8, 8);
+            int x = 100;
+            int y = 100;
+         hero = new Player(x, y);
+            int xBall = randGen.Next(40, screenSize.Width + 100);
+            ball = new Ball(xBall, y, 50, 68);
+            for (int i = 0; i < 10; i++)
+            {
+                NewBall();
+            }
         }
-            private void GameScreen_Paint(object sender, PaintEventArgs e)
+        public void NewBall()
         {
-            scoreLabel.Text = $"{score}";
-            livesLabel.Text = $"{lives}";
-            //Graphics.FillEllipse(Brushes.Green,ball.x, ball.y, ball.size, ball.size);
-          //foreach (Ball b in ballList)
-         // {
-           //   e.Graphics.FillEllipse(Brushes.Red, b.x, b.y, b.size, b.size);
-         // }
+            int xBall = randGen.Next(40, screenSize.Width + 100);
+            int yBall = 0;
+            Ball b = new Ball(xBall, yBall, 8, 8);
+            ballList.Add(b);
+        }
 
-         // e.Graphics.FillRectangle(Brushes.DodgerBlue, hero.x, hero.y, hero.width, hero.height);
+        private void GameScreen_Paint(object sender, PaintEventArgs e)
+        {
+            livesLabel.Text = $"{lives}";
+            e.Graphics.FillRectangle(Brushes.DodgerBlue, hero.x, hero.y, hero.width, hero.height);
+
+
+            foreach (Ball b in ballList)
+            {
+                e.Graphics.FillEllipse(Brushes.Green, b.x, b.y, b.size, b.size);
+            }
+
         }
 
         private void GameScreen_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
@@ -116,11 +132,36 @@ namespace dodge_ball_game
             {
                 hero.Move("down", screenSize);
             }
+            ball.Move(screenSize);
 
-         
+            if ( hero > screenSize.Width || ==screenSize.Width)
+            {
+                gameTimer.Enabled = false;
+                Form1.ChangeScreen(this, new UserControl1());
+            }
 
-
+            foreach (Ball b in ballList)
+            {
+                b.Move(screenSize);
+            }
+            foreach (Ball b in ballList)
+            {
+                if (b.Collision(hero))
+                {
+                   lives--;
+                    if (lives == 0)
+                    {
+                        gameTimer.Enabled = false; 
+                        Form1.ChangeScreen(this, new GameOverScreen());
+                    }
+                   
+      
+                }
+            }
             Refresh();
         }
+
+      
     }
 }
+            

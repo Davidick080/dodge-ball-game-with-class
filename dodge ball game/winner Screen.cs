@@ -10,26 +10,24 @@ using System.Windows.Forms;
 
 namespace dodge_ball_game
 {
-    public partial class GameOverScreen : UserControl
+    public partial class UserControl1 : UserControl
     {
-        public GameOverScreen()
+        public UserControl1()
         {
             InitializeComponent();
         }
 
-        private void retry_Button_Click(object sender, EventArgs e)
+        private void main_Menu_Click(object sender, EventArgs e)
         {
-            
             Form1.ChangeScreen(this, new Main_menu());
             GameScreen.lives = 3;
-            
+        }
 
-           
-    }
-
-        private void exit_Click(object sender, EventArgs e)
+        private void exit_Button_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
+
+       
     }
 }

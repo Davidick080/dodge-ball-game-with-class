@@ -8,14 +8,14 @@ using System.Drawing;
 namespace dodge_ball_game
 {
 
-    internal class Player
+    public class Player
     {
         public int width = 30;
         public int height = 10;
         public int speed = 6;
         public int x, y;
 
-        public Player(int _x, int _y)
+        public Player( int _x, int _y)
         {
             x = _x;
             y = _y;

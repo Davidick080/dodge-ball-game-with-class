@@ -9,11 +9,11 @@ namespace dodge_ball_game
 {
     public class Ball
     {
-        public int size = 10;
+        public int size = 20;
         public int xSpeed, ySpeed;
-        public int x, y;
-         List<ballIntergersList> playerInformation = new List<ballIntergersList>();
-        // colour, rectangle
+        public int y, x;
+       
+
         public Ball(int _x, int _y, int _xSpeed, int _ySpeed)
         {
             x = _x;
@@ -22,29 +22,34 @@ namespace dodge_ball_game
             ySpeed = _ySpeed;
         }
 
+        public void Move(Size screenSize)
+        {
+            y += ySpeed;
 
-        //public bool Collision(Player p)
-        //{
-        //    Rectangle ballRec = new Rectangle(x, y, size, size);
-        //    Rectangle playerRec = new Rectangle(p.x, p.y, p.width, p.height);
+            if (y > screenSize.Height - size || y < 0)
+            {
+                ySpeed *= -1; ;
+            }
+          
+        }
+        public bool Collision(Player p)
+        {
 
-        //    if (ballRec.IntersectsWith(playerRec))
-        //    {
-        //        if (y > 0)
-        //        {
-        //            y = p.y - size;
-        //        }
-        //        else
-        //        {
-        //            y = p.y + p.height;
-        //        }
+            Rectangle ballRec = new Rectangle(x, y, 8, 8);
+            Rectangle playerRec = new Rectangle(p.x, p.y, p.width, p.height);
 
-        //        ySpeed *= -1;
-        //        return true;
-        //    }
+            if (ballRec.IntersectsWith(playerRec))
+            {
+              
+                return true;
+            }
 
-        //    return false;
-        //}
+            return false;
+        }
     }
 }
+          
+        
+  
+
         

@@ -48,7 +48,7 @@
             this.retry_Button.Name = "retry_Button";
             this.retry_Button.Size = new System.Drawing.Size(75, 23);
             this.retry_Button.TabIndex = 1;
-            this.retry_Button.Text = "retry";
+            this.retry_Button.Text = "main menu";
             this.retry_Button.UseVisualStyleBackColor = true;
             this.retry_Button.Click += new System.EventHandler(this.retry_Button_Click);
             // 
