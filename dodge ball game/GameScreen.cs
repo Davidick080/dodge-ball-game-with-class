@@ -134,7 +134,7 @@ namespace dodge_ball_game
             }
             ball.Move(screenSize);
 
-            if ( hero > screenSize.Width || ==screenSize.Width)
+            if ( hero.x > screenSize.Width -50 || hero.x==screenSize.Width)
             {
                 gameTimer.Enabled = false;
                 Form1.ChangeScreen(this, new UserControl1());
@@ -149,6 +149,7 @@ namespace dodge_ball_game
                 if (b.Collision(hero))
                 {
                    lives--;
+                   hero.x= 100;
                     if (lives == 0)
                     {
                         gameTimer.Enabled = false; 
