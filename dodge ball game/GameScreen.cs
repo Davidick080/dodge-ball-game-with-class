@@ -7,8 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-// work on list 
-// 1st provblem figure out how to declare objects with the mouse key's 
+
 namespace dodge_ball_game
 {
     public partial class GameScreen : UserControl
